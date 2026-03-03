@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sona darling ❤️ Megha | Forever</title>
+
+<style>
+body {
+    margin:0;
+    padding:0;
+    height:100vh;
+    background: linear-gradient(135deg, #000000, #1a1a1a, #2b2b2b);
+    font-family: 'Georgia', serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    color:#f5d27a;
+}
+
+/* Luxury Card */
+.card {
+    background: rgba(255, 215, 0, 0.05);
+    border:1px solid rgba(255,215,0,0.3);
+    backdrop-filter: blur(15px);
+    padding:60px;
+    border-radius:30px;
+    width:520px;
+    text-align:center;
+    box-shadow:0 0 60px rgba(255,215,0,0.4);
+    animation: fadeIn 2s ease;
+}
+
+h1 {
+    font-size:36px;
+    letter-spacing:2px;
+}
+
+p {
+    font-size:18px;
+    line-height:1.9;
+    margin-top:25px;
+    color:#fff3c4;
+}
+
+button {
+    padding:14px 35px;
+    font-size:18px;
+    border-radius:30px;
+    cursor:pointer;
+    margin:20px;
+    transition:0.4s;
+    font-weight:bold;
+}
+
+#yesBtn {
+    background: linear-gradient(45deg, gold, #f5d27a);
+    border:none;
+    color:black;
+}
+#yesBtn:hover {
+    transform:scale(1.1);
+    box-shadow:0 0 20px gold;
+}
+
+#noBtn {
+    background:white;
+    color:black;
+    position:absolute;
+    border:none;
+}
+
+/* Floating hearts */
+.heart {
+    position:absolute;
+    font-size:20px;
+    animation: float 7s linear infinite;
+    color:gold;
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh); opacity:1; }
+    100% { transform: translateY(-10vh); opacity:0; }
+}
+
+@keyframes fadeIn {
+    from {opacity:0; transform:translateY(40px);}
+    to {opacity:1; transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+<h1>Sona Darling 👑</h1>
+
+<p>
+Megha doesn’t want drama…  
+Megha just wants you. ❤️<br><br>
+
+I am sorry if I hurt you.  
+My love for you is bigger than my mistakes.<br><br>
+
+Today I’m not asking just for forgiveness…  
+I’m asking for Forever.
+</p>
+
+<button id="yesBtn" onclick="proposal()">Yes, Forever ❤️</button>
+<button id="noBtn" onmouseover="moveButton()">No</button>
+</div>
+
+<script>
+function proposal() {
+    document.body.innerHTML = `
+    <div style="text-align:center; margin-top:120px; animation:fadeIn 2s;">
+    <h1 style="font-size:45px; color:gold;">💍 Megha ❤️ Sona darling💍</h1>
+    <h2 style="color:white; margin-top:20px;">Will You Be Mine Forever?</h2>
+    <p style="font-size:22px; margin-top:30px; color:#f5d27a;">
+    In every lifetime…<br>
+    In every universe…<br>
+    I will still choose you.
+    </p>
+    <h2 id="countdown" style="margin-top:40px; color:white;"></h2>
+    </div>`;
+
+    startCountdown();
+}
+
+function startCountdown() {
+    let count = 5;
+    let counter = setInterval(function() {
+        document.getElementById("countdown").innerHTML =
+        "Our Royal Forever Begins In... " + count + " 👑";
+        count--;
+        if(count < 0) {
+            clearInterval(counter);
+            document.getElementById("countdown").innerHTML =
+            "Forever Starts Now ♾️❤️";
+        }
+    },1000);
+}
+
+function moveButton() {
+    let x = Math.random() * (window.innerWidth - 100);
+    let y = Math.random() * (window.innerHeight - 50);
+    document.getElementById('noBtn').style.left = x + "px";
+    document.getElementById('noBtn').style.top = y + "px";
+}
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💛";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 25 + 15) + "px";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 7000);
+}
+setInterval(createHeart, 500);
+</script>
+
+</body>
+</html>
